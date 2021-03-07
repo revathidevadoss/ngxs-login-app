@@ -1,0 +1,27 @@
+
+<div class="container-fluid ">
+  <div class="card formstyle" >
+    <div class="card-body">
+    <img src="./assets/logo.png" style="height:100px;width:100px;">
+    <div class="txt-color">MOVE TO MOBILITY</div>
+
+   
+       <div class="card-body">
+              <div class=" ">
+                <i class="bi bi-lock-fill"></i>
+                <input type="text"  placeholder="User Name" class="form-control input-align" #username/>
+               
+                      <input type="password"  placeholder="Password" class="form-control input-align" #password/>
+                      
+                  <div class="row px-3 mb-4">
+                      <div class="custom-control">
+                        <a (click)="onClickSubmit(username.value,password.value)" class="txt-red-color mr-1">Login</a> </div> <a  class="ml-auto mb-0 txt-color">Forgot Password?</a>
+                  </div>
+                  <div *ngIf="invalid" class="row mb-4 px-3"> <a class="text-danger " >Invalid username and password</a> </div>
+              </div>
+          </div>
+        </div>
+     
+  </div>
+</div>
+

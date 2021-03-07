@@ -1,0 +1,75 @@
+<!-- As a link -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="home()"  >Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="product()">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="sales()">Sales</a>
+        </li>
+      </ul>
+      <span class="navbar-text" (click)="logout()">
+        Logout
+      </span>
+    </div>
+  </nav>
+<div class="card mt-3 text-backgrnd">
+    <div class="card-body">
+        <img src="./assets/logo.png"/>
+        <div class="txt-color">MOVE TO MOBILITY</div>
+
+        <div class="txt-color">Product</div>
+
+        <form [formGroup]="productForm" (ngSubmit)="submitForm()" >
+            <div class="form-group" >
+                
+                <input type="number" [readonly]="editFlag"  placeholder="Product Id" class="form-control input-align" formControlName="productid" #productid/>
+                <div *ngIf="productForm.controls['productid'].invalid && (productForm.controls['productid'].dirty || productForm.controls['productid'].touched)"
+                     class="alert alert-danger">
+                    <div *ngIf="productForm.controls['productid'].errors.required">
+                        Product Id is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text"  placeholder="product Name" class="form-control input-align" formControlName="productname" #productname/>
+                
+                <div *ngIf="productForm.controls['productname'].invalid && (productForm.controls['productname'].dirty || productForm.controls['productname'].touched)"
+                     class="alert alert-danger">
+                    <div *ngIf="productForm.controls['productname'].errors.required">
+                        Product Name is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="number" placeholder="amount" class="form-control input-align" formControlName="amount" #amount/>
+                
+                <div *ngIf="productForm.controls['amount'].invalid && (productForm.controls['amount'].dirty || productForm.controls['amount'].touched)"
+                     class="alert alert-danger">
+                    <div *ngIf="productForm.controls['amount'].errors.required">
+                        Amount is required.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit"
+                        class="btn btn-primary mr-1"
+                        [disabled]="productForm.pristine || productForm.invalid">{{Submit}}
+                </button>
+
+                <button class="btn btn-primary mr-1" (click)="clearForm()">Clear</button>
+
+            </div>
+
+        </form>
+    </div>
+</div>
