@@ -3,3 +3,10 @@ export interface StateModel {
     productname: string;
     amount: number;
 }
+export interface Authenticate {
+    username: string;
+    password: string;
+  }
+  export interface User {
+    name: string;
+  }

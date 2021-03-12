@@ -1,4 +1,4 @@
-import {StateModel} from '../models/product.model';
+import {StateModel,Authenticate,User} from '../models/product.model';
 
 
 export class RemoveList {
@@ -35,3 +35,24 @@ export class DeleteList {
     }
 }
 
+export class Login {
+    static readonly type = '[Auth] Login';
+  
+    constructor(public payload: Authenticate) {}
+  }
+  
+  export class LoginSuccess {
+    static readonly type = '[Auth] Login Success';
+  
+    constructor(public payload: { user: User }) {}
+  }
+  
+  export class LoginFailure {
+    static readonly type = '[Auth] Login Failure';
+  
+    constructor(public payload: any) {}
+  }
+  
+  export class LoginRedirect {
+    static readonly type = '[Auth] Login Redirect';
+  }

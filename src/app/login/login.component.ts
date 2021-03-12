@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 
 import {ProductState} from '../states/product.state';
 import {StateModel} from '../models/product.model';
+import {Login} from '../actions/product.action';
 
 @Component({
 selector: 'login-app',
@@ -28,10 +29,13 @@ export class LoginComponent implements OnInit {
   }
 
   onClickSubmit(username,password) {
-      if(username=="admin"&& password=="test123"){
+   let datas={username: username, password: password}
+
+    this.store.dispatch(new Login(datas));
+     /* if(username=="admin"&& password=="test123"){
         this.router.navigate(['/product']);
       }else{
         this.invalid=true;
-      } 
+      } */
   }
 }
